@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Technical Test / Full-stack
 
 **Please read those instructions carefully**, it contains useful information to help you complete the
@@ -137,3 +138,6 @@ Open [documentation](back/README.md).
 ### Frontend Server Skeleton
 
 Open [documentation](front/README.md).
+=======
+# testTechChPrive
+>>>>>>> 8ac3682c761b5ccd0bf2d2d0f650c95a1289b409
