@@ -68,6 +68,8 @@ async function getBestRiderBasedOnNumberRides(req, res) {
   const ridersList = await riders.returnListRiders();
   let bestElement = ridersList[0];
   ridersList.forEach(element => {
+    if(element.rides === undefined)
+      return;
     if(element.rides.length > bestElement.rides.length)
       bestElement= element;
   });
