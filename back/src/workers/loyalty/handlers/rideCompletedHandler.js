@@ -38,7 +38,7 @@ function rideCompletedHandler(message) {
                   '[worker.handleSignupEvent] update ride',
                 );
                 const returnedRide = await riderModel.findOneByIdRides({'rides.id': ObjectId(rideId)})
-                if(returnedRide === undefined)
+                if(returnedRide === undefined || returnedRide.rides === null || returnedRide.rides === undefined)
                     return;
 
                 const ridesArray =  Array.from(returnedRide.rides);

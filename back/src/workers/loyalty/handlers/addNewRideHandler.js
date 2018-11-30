@@ -20,25 +20,7 @@ async function addNewRideHandler(message) {
         { id: rideId , amount, riderId},
         '[worker.handleSignupEvent] add rides event',
     );
-    const riderObj = await riderModel.findOneById(ObjectId(message.payload.rider_id))
-    if(riderObj === null)
-        return;
 
-    if('rides' in riderObj) {
-        const lengthTab = riderObj.rides.length
-        if(lengthTab >= 0 && lengthTab < 20 )
-            riderObj.status = 'bronze';
-        else if(lengthTab >= 20 && lengthTab < 50 )
-            riderObj.status = 'silver';
-        else if(lengthTab >= 50 && lengthTab < 100 )
-            riderObj.status = 'gold';
-        else if(lengthTab >= 100 )
-            riderObj.status = 'platinum';
-
-        await riderModel.updateOne(ObjectId(message.payload.rider_id), {
-            status : riderObj.status
-        });
-    }
     try {
         logger.info(
         { rider_id: rideId, amount},
@@ -54,6 +36,27 @@ async function addNewRideHandler(message) {
         await riderModel.updateOnePush(ObjectId(message.payload.rider_id), {
             rides :  message.payload
         });
+        const riderObj = await riderModel.findOneById(ObjectId(message.payload.rider_id))
+        if(riderObj === null)
+            return;
+
+        if('rides' in riderObj) {
+            if(riderObj.rides !== null) {
+                const lengthTab = riderObj.rides.length;
+                if(lengthTab >= 0 && lengthTab < 20 )
+                    riderObj.status = 'bronze';
+                else if(lengthTab >= 20 && lengthTab < 50 )
+                    riderObj.status = 'silver';
+                else if(lengthTab >= 50 && lengthTab < 100 )
+                    riderObj.status = 'gold';
+                else if(lengthTab >= 100 )
+                    riderObj.status = 'platinum';
+
+                await riderModel.updateOne(ObjectId(message.payload.rider_id), {
+                    status : riderObj.status
+                });
+            }
+        }
     } catch (err) {
         handleMessageError(err, message);
     }

@@ -1,3 +1,246 @@
-.App {
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+.menu {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  width: 100%;
+  margin: 0;
+  display: inline-flex;
+  height: 75px;
+  margin-top: 54px; }
+  .menu > div {
+    height: 60px;
+    padding: 0;
+    font-size: 32px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    width: 50%; }
+    .menu > div > div {
+      height: 100%;
+      padding: 5px 10px 0 10px;
+      border-bottom: 4px solid;
+      display: inline-block;
+      transition: background 0.1s;
+      overflow: hidden; }
+      .menu > div > div.active {
+        width: 100%;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0; }
+    @media (max-width: 991px) {
+      .menu > div {
+        font-size: 24px; }
+        .menu > div > div {
+          padding-top: 12px; }
+        .menu > div .badge {
+          font-size: 12px;
+          margin-top: 1px; } }
+    @media (max-width: 767px) {
+      .menu > div {
+        height: 50px;
+        font-size: 16px; } }
+    @media (max-width: 575px) {
+      .menu > div {
+        height: 40px;
+        font-size: 12px; }
+        .menu > div .multipleLines {
+          padding-top: 2px; }
+        .menu > div .iconMenu {
+          font-size: 16px; }
+        .menu > div .badge {
+          font-size: 10px; } }
+  .menu .badge {
+    color: #ffffff;
+    font-size: 14px;
+    background: #ff700a;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border-radius: 12px;
+    margin-left: -5px;
+    padding: .3em .5em; }
+    @media (max-width: 575px) {
+      .menu .badge {
+        margin-left: -7px;
+        top: 1px; } }
+  .menu .eligibility {
+    color: #ff700a;
+    border-color: #ff700a; }
+    .menu .eligibility.active {
+      background: rgba(255, 112, 10, 0.25); }
+  .menu .search {
+    color: #8f2424;
+    border-color: #8f2424; }
+    .menu .search.active {
+      background: rgba(143, 36, 36, 0.25); }
+  .menu .question {
+    color: #30b3c5;
+    border-color: #30b3c5; }
+    .menu .question.active {
+      background: rgba(48, 179, 197, 0.25); }
+    .menu .question .badge {
+      background: #30b3c5; }
+  .menu .iconMenu {
+    padding-top: 7px;
+    color: #000000; }
+
+.mainFormContainer {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border: 1px solid #cccccc;
+  text-align: center; }
+  @media (max-width: 767px) {
+    .mainFormContainer {
+      border: 0; } }
+  .mainFormContainer form .successInfo, .mainFormContainer form .errorInfo {
+    margin-bottom: 10px;
+    font: 14px 'Roboto', arial;
+    color: #ff0000; }
+  .mainFormContainer form .successInfo {
+    color: #ff0000; }
+  .mainFormContainer form h4 {
+    font-size: 20px; }
+  .mainFormContainer form input {
+    width: 200px;
+    height: 25px;
+    padding: 14px 5px 6px 5px;
+    border: 1px solid #cccccc;
+    background: #f8f8f8;
+    color: #707070;
+    font-family: 'Roboto', arial;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 12px; }
+    .mainFormContainer form input[type=date] {
+      color: transparent; }
+  .mainFormContainer form a {
+    font-size: 12px;
+    color: #707070; }
+    .mainFormContainer form a.loginSwitch {
+      font-family: 'Roboto', arial;
+      margin: 15px 0 10px 0;
+      text-decoration: none;
+      text-align: center; }
+      .mainFormContainer form a.loginSwitch span {
+        text-decoration: underline; }
+    .mainFormContainer form a.resetLink {
+      width: 200px;
+      text-align: right;
+      display: inline-block; }
+  .mainFormContainer form label {
+    position: relative;
+    text-align: left; }
+    .mainFormContainer form label span, .mainFormContainer form label i {
+      position: absolute;
+      color: #707070; }
+    .mainFormContainer form label span {
+      top: 12px;
+      left: 5px;
+      transition: all 0.1s;
+      user-select: none; }
+    .mainFormContainer form label i {
+      height: 20px;
+      background: #f8f8f8;
+      top: 16px;
+      right: 6px;
+      cursor: default; }
+    .mainFormContainer form label input {
+      width: 200px;
+      height: 46px;
+      padding: 14px 5px 6px 5px;
+      border: 1px solid #cccccc;
+      background: #f8f8f8;
+      color: #707070;
+      font-family: 'Roboto', arial;
+      box-shadow: none;
+      border-radius: 0; }
+      .mainFormContainer form label input[type=date] {
+        color: transparent; }
+    .mainFormContainer form label p {
+      margin: 0;
+      text-align: left;
+      font-size: 12px; }
+    .mainFormContainer form label.error input {
+      border-color: #ff0000; }
+    .mainFormContainer form label.error p {
+      padding-left: 3px;
+      color: #ff0000; }
+    .mainFormContainer form label.active span {
+      top: 1px;
+      font-size: 11px; }
+    .mainFormContainer form label.active input[type=date] {
+      color: #707070; }
+  .mainFormContainer form .info {
+    width: 200px;
+    margin: 0 auto;
+    line-height: 12px;
+    font-size: 10px;
+    text-align: left;
+    color: #bbbbbb; }
+    .mainFormContainer form .info ul {
+      margin: 0;
+      padding: 0 0 0 15px; }
+  .mainFormContainer button, .mainFormContainer .btn {
+    margin-top: 20px;
+    background: #ff0000;
+    height: 35px;
+    width: 100px;
+    color: #ffffff;
+    font-family: 'Roboto', arial; }
+
+body {
+  font-family: 'Roboto', arial;
+  color: #707070; }
+
+header {
+  height: 130px;
+  padding: 20px;
+  margin: 7px;
+  text-align: center; }
+  header .logo {
+    width: 180px;
+    float: right;
+    transition: width 0.1s;
+    margin-right: 45%; }
+    @media (max-width: 767px) {
+      header .logo {
+        width: 100px; } }
+    header .logo img {
+      width: 100%; }
+  header .eassistant {
+    width: 250px;
+    margin: 10px 0 0 5px;
+    transition: width 0.1s; }
+    @media (max-width: 767px) {
+      header .eassistant {
+        width: 110px;
+        margin: 8px 0 0 5px; } }
+  header .userMenu {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
+    header .userMenu a {
+      margin-right: 20px;
+      font-size: 16px;
+      color: #948f8f; }
+      header .userMenu a:last-child {
+        margin-right: 0; }
+      header .userMenu a i {
+        padding-left: 3px;
+        color: #ff0000; }
+    @media (max-width: 767px) {
+      header .userMenu span {
+        display: none; } }
+
+h1 {
+  color: #ff0000;
+  font-family: 'OswaldLight', arial;
+  text-align: center; }
+
+h4 {
+  margin-bottom: 15px;
+  color: #707070;
   text-align: center;
-}
+  font-family: 'Roboto', arial;
+  font-weight: bold; }

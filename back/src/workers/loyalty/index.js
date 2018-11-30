@@ -45,7 +45,6 @@ async function start() {
           validate: message => message,
           routingKey: 'ride.completed',
         },
-        // TODO add missing workers here
       ],
       {
         workerName: 'loyaltyWorker',

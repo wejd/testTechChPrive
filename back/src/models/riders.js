@@ -160,6 +160,21 @@ async function updateOneElementInArray(obj, updatedFields, inc) {
   return result; */
   return result;
 }
+/**
+ * find all rider by key
+ *
+ * @param {ObjectId} obj     - identifier of the updated rider
+ * @param {Object} updatedFields - fields that are updated
+ * @param {Object} inc - fields that are updated
+ *
+ * @returns {Object/null} result of update if succeeded, null otherwise
+ */
+ async function searchRiderByKey(key) {
+  const result = await collection().find({name: new RegExp(key, 'i')}).toArray();
+  /* const result = await collection().find({});
+  return result; */
+  return result;
+}
 
 module.exports = {
   collection,
@@ -171,5 +186,6 @@ module.exports = {
   updateOnePush,
   updateOneElementInArray,
   findOneByIdRides,
-  returnListRiders
+  returnListRiders,
+  searchRiderByKey
 };

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Technical Test / Full-stack
 
 **Please read those instructions carefully**, it contains useful information to help you complete the
@@ -6,9 +5,9 @@ test successfully.
 
 ## Purpose
 
-This test will ask you to develop a micro-service and a optionally front-end application using it. 
-Some goals are required and some are optional. The micro-service is responsible for managing the 
-loyalty program, and is using an event-driven approach by listening to AMQP messages and reacting 
+This test will ask you to develop a micro-service and a optionally front-end application using it.
+Some goals are required and some are optional. The micro-service is responsible for managing the
+loyalty program, and is using an event-driven approach by listening to AMQP messages and reacting
 accordingly.
 
 To facilitate the evaluation, we advise you to use :
@@ -45,7 +44,7 @@ stack (Node.js >= 8.12, Golang >= 1.8, Python >= 3.4).
 
 ### Implement loyalty points earning
 
-Each rider has a status. The status is computed from the user's number of completed rides 
+Each rider has a status. The status is computed from the user's number of completed rides
 according to the following rule:
 ```text
   - bronze:     0 <= NB rides < 20
@@ -55,7 +54,7 @@ according to the following rule:
 ```
 
 When a rider finishes a ride, he gains an amount of loyalty points. The amount of
-points is computed with a multiplier associated to each loyalty status, according to 
+points is computed with a multiplier associated to each loyalty status, according to
 the following rule:
 ```text
   - bronze:   1€ = 1  point
@@ -69,9 +68,9 @@ For example:
 - If a gold rider paid 8€, he earns 40 loyalty points.
 
 **To complete this goal you must:**
-- implement a worker to handle the required set of event messages for users to earn their 
-loyalty points 
-- provide an API that allows to retrieve current status of a user, along with the number of loyalty 
+- implement a worker to handle the required set of event messages for users to earn their
+loyalty points
+- provide an API that allows to retrieve current status of a user, along with the number of loyalty
 points he owns and the number of rides he made
 
 
@@ -140,4 +139,3 @@ Open [documentation](back/README.md).
 Open [documentation](front/README.md).
 =======
 # testTechChPrive
->>>>>>> 8ac3682c761b5ccd0bf2d2d0f650c95a1289b409

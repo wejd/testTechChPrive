@@ -22,17 +22,10 @@ function handleSignupEvent(message, messageFields) {
     { rider_id: riderId, name },
     '[worker.handleSignupEvent] Received user signup event',
   );
-
-  // TODO handle idempotency
-  /* ; */
    mutex.timedLock(1000, async (error) =>{
      if(error) {
         console.log("error")
      }else{
-        // do stuff
-        /* const userFound =  await riderModel.findOneById(riderId);
-        if(userFound === undefined || userFound === null)
-          return; */
         try {
           logger.info(
             { rider_id: riderId, name },

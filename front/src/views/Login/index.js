@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from './../../actions/AuthService';
 import './index.css';
-import MainInput from '../../components/MainInput';
-import PasswordInput from '../../components/PasswordInput';
 import { isNil } from 'lodash';
-import decode from 'jwt-decode';
 
 class Login extends Component {
     constructor(props) {
@@ -38,10 +35,10 @@ class Login extends Component {
         e.preventDefault();
         this.Auth.login(this.state.email, this.state.password)
             .then(res => {
-                let role = decode(res.token).role;
+                let role = res.role;
 
-                if(role === 'commercial' || role === 'admin')
-                    return this.props.history.replace('/commercial');
+                if(role === 'rider')
+                    return this.props.history.replace('/rider');
 
                 this.props.history.replace('/');
             })
@@ -67,7 +64,7 @@ class Login extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <h1>BIENVENUE SUR VOTRE eASSISTANT</h1>
+                        <h1>Chauffeur Privé</h1>
                     </div>
                 </div>
                 <div className="row">
@@ -77,28 +74,9 @@ class Login extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <h4>Se connecter</h4>
                             <div className={this.state.errorMessage ? 'errorInfo' : null}>{this.state.errorMessage}</div>
-                            <MainInput
-                                title="E-mail"
-                                type="email"
-                                name="email"
-                                onChange={this.handleChange}
-                                value={this.state.email}
-                                error={this.state.errorMessage !== ''}
-                            />
-                            <PasswordInput
-                                onChange={this.handleChange}
-                                value={this.state.password}
-                                error={this.state.errorMessage !== ''}
-                                pattern={false}
-                                showInfo={false}
-                            />
-                            <div>
-                                <a href="/reset" className="resetLink">Mot de passe oublié ?</a>
-                            </div>
+
+                            <input type='email' value={this.state.email} name='email' onChange={this.handleChange}/>
                             <button type="submit" className="btn">Se connecter</button>
-                            <div>
-                                <a className="loginSwitch" href="/register">Pas encore inscrit ? <span>Créer un compte</span></a>
-                            </div>
                         </form>
                     </div>
                 </div>

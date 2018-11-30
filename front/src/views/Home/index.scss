@@ -1,0 +1,17 @@
+
+.adminBtn {
+    color: #ffffff;
+    position: absolute;
+    top: 45px;
+    right: 10px;
+
+    &:hover, &:focus {
+        color: #ffffff;
+    }
+    @media (max-width: 767px) {
+        padding: 4px 6px;
+        right: 5px;
+        font-size: 10px;
+        line-height: 12px;
+    }
+}

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './index.css';
 import request from 'superagent';
 import { setInterval } from 'timers';
 
+import Profile from './../Profile';
 
 
 
-class RiderInfo extends Component {
+class RiderList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,6 +27,7 @@ class RiderInfo extends Component {
           error: err.toString()
         });
       });
+
     }, 500);
   }
 
@@ -41,20 +42,21 @@ class RiderInfo extends Component {
     }
     const listItems = this.state.ridersTab.map((item, i) => {
         return <div  key={i} className = 'riderLine'>
-        <div style= {{display: 'inline-block', margin: '12px'}}>{item._id}</div>
-        <div style= {{display: 'inline-block', margin: '12px'}}>{item.name}</div>
-        <div style= {{display: 'inline-block', margin: '12px'}}>{item.status}</div>
-        <div style= {{display: 'inline-block', margin: '12px'}}>{item.loyality_point}</div>
+
+        <Profile data={item}/>
         </div>
     })
     return (
-        <ul>
+
+        <div className="container" style={{marginTop: '12px'}}>
+        <div className="row">
         {listItems}
-        </ul>
+        </div>
+    </div>
     );
 
   }
 }
 
-export default RiderInfo;
+export default RiderList;
 

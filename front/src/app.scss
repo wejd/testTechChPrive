@@ -1,0 +1,83 @@
+@import 'assets/scss/all';
+@import 'assets/scss/menu.scss';
+@import 'assets/scss/mainForm.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+body {
+    font-family: 'Roboto', arial;
+    color: $colorText;
+}
+
+header {
+    height: $headerHeight;
+    padding: 20px;
+    margin: 7px;
+    text-align: center;
+
+    .logo {
+        width: 180px;
+        float: right;
+        transition: width 0.1s;
+        margin-right: 45%;
+
+        @media (max-width: 767px) {
+            width: 100px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .eassistant {
+        width: 250px;
+        margin: 10px 0 0 5px;
+        transition: width 0.1s;
+
+        @media (max-width: 767px) {
+            width: 110px;
+            margin: 8px 0 0 5px;
+        }
+    }
+
+    .userMenu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        a {
+            margin-right: 20px;
+            font-size: 16px;
+            color: #948f8f;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            i {
+                padding-left: 3px;
+                color: $colorMain;
+            }
+        }
+
+        @media (max-width: 767px) {
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+h1 {
+    color: $colorMain;
+    font-family: 'OswaldLight', arial;
+    text-align: center;
+}
+
+h4 {
+    margin-bottom: 15px;
+    color: $colorText;
+    text-align: center;
+    font-family: 'Roboto', arial;
+    font-weight: bold;
+}

@@ -56,8 +56,40 @@ async function getAllRiders(req, res) {
   const ridersList = await riders.returnListRiders();
   return res.send(ridersList);
 }
+/**
+ * Get current rider status
+ *
+ * @param {Object} req express request
+ * @param {Object} res express response
+ *
+ * @returns {Object} response
+ */
+async function getBestRiderBasedOnNumberRides(req, res) {
+  const ridersList = await riders.returnListRiders();
+  let bestElement = ridersList[0];
+  ridersList.forEach(element => {
+    if(element.rides.length > bestElement.rides.length)
+      bestElement= element;
+  });
+  return res.send(bestElement);
+}
+/**
+ * Get current rider status
+ *
+ * @param {Object} req express request
+ * @param {Object} res express response
+ *
+ * @returns {Object} response
+ */
+async function searchRiderByKey(req, res) {
+  const ridersList = await riders.searchRiderByKey(req.params.key);
+
+  return res.send(ridersList);
+}
 
 module.exports = {
   getLoyaltyInfo,
-  getAllRiders
+  getAllRiders,
+  getBestRiderBasedOnNumberRides,
+  searchRiderByKey
 };
